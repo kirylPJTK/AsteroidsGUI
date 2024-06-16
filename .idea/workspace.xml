@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/MyJFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Images/ship.png" afterDir="false" />
+    <list default="true" id="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" name="Changes" comment="Dodanie velocity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <list id="32db2b28-f438-470a-a2ae-0c7e0d867d89" name="Changes by kirillglusakov" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +47,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/mikol/Documents/AsteroidsGUI/src/main/java/Images",
+    "last_opened_file_path": "C:/Users/mikol/Desktop/projekt 3 - Copy - Copy - Copy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -99,11 +93,25 @@
       <updated>1718210338455</updated>
       <workItem from="1718210339339" duration="244000" />
       <workItem from="1718210956053" duration="2373000" />
-      <workItem from="1718213379907" duration="4899000" />
+      <workItem from="1718213379907" duration="5526000" />
+      <workItem from="1718269761147" duration="65000" />
     </task>
+    <task id="LOCAL-00001" summary="Dodanie velocity">
+      <option name="closed" value="true" />
+      <created>1718222360751</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718222360751</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Dodanie velocity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie velocity" />
   </component>
 </project>
