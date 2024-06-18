@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" name="Changes" comment="Dodanie velocity">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Images/comet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Ship.java" afterDir="false" />
     </list>
-    <list id="32db2b28-f438-470a-a2ae-0c7e0d867d89" name="Changes by kirillglusakov" comment="" />
+    <list id="32db2b28-f438-470a-a2ae-0c7e0d867d89" name="Changes by kirillglusakov" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Ship.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +32,33 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.jdks/openjdk-21.0.1/lib/src.zip!/java.base/java/lang/ClassCastException.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/openjdk-21.0.1/lib/src.zip!/java.desktop/java/awt/event/KeyAdapter.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/Models/Ship.java">
+      <ranges>
+        <range start1="9" end1="9" start2="9" end2="11" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+        <range start1="11" end1="14" start2="13" end2="14" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+        <range start1="37" end1="39" start2="37" end2="37" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
+        <range start1="48" end1="54" start2="46" end2="48" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
+        <range start1="55" end1="61" start2="49" end2="51" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
+        <range start1="74" end1="74" start2="64" end2="67" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+        <range start1="75" end1="76" start2="68" end2="83" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+        <range start1="78" end1="78" start2="85" end2="122" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/GUI/Board.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+        <range start1="9" end1="9" start2="10" end2="12" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+        <range start1="11" end1="11" start2="14" end2="17" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
+        <range start1="12" end1="12" start2="18" end2="20" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+        <range start1="14" end1="15" start2="22" end2="23" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+        <range start1="16" end1="16" start2="24" end2="33" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+        <range start1="29" end1="29" start2="46" end2="50" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
+        <range start1="34" end1="35" start2="55" end2="55" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+        <range start1="37" end1="37" start2="57" end2="58" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -53,12 +86,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mikol\Documents\AsteroidsGUI\src\main\java\Images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mikol\Documents\AsteroidsGUI\src\main\java\Images" />
     </key>
   </component>
@@ -95,6 +131,11 @@
       <workItem from="1718210956053" duration="2373000" />
       <workItem from="1718213379907" duration="5526000" />
       <workItem from="1718269761147" duration="65000" />
+      <workItem from="1718571195591" duration="704000" />
+      <workItem from="1718615027771" duration="190000" />
+      <workItem from="1718616284821" duration="29000" />
+      <workItem from="1718728969940" duration="17000" />
+      <workItem from="1718732213714" duration="7012000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie velocity">
       <option name="closed" value="true" />
@@ -104,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718222360751</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Dodanie velocity">
+      <option name="closed" value="true" />
+      <created>1718571219066</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718571219066</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
