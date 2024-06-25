@@ -6,6 +6,7 @@ import lombok.Data;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 @Data
 public class Comet implements Runnable {
@@ -13,8 +14,9 @@ public class Comet implements Runnable {
     private final Image image;
     private int x;
     private int y;
-    private double angle = 360*Math.random();
+    private double angle = 360 * Math.random();
     private double velocity = 5;
+    private Random rand = new Random();
 
     public Comet(Image image, Board board, int x, int y) {
         this.image = image;
@@ -23,32 +25,34 @@ public class Comet implements Runnable {
         this.y = y;
     }
 
-
-
-
     @Override
     public void run() {
-//        this.velocity *= 0.99;
-        if (this.velocity < 0.1 && this.velocity > -0.1)
+        if (this.velocity < 0.1 && this.velocity > -0.1) {
             this.velocity = 0;
+        }
 
+        // Adding random acceleration to simulate gravity-like effect
+        double acceleration = (rand.nextDouble() * 2 - 1) * 0.1; // Random acceleration between -0.1 and 0.1
+        this.velocity += acceleration;
 
+        // Adding random change to the angle
+        double angleChange = (rand.nextDouble() * 2 - 1) * 5; // Random angle change between -5 and 5 degrees
+        this.angle += angleChange;
 
-//        this.x += this.velocity;
-
+        // Update position based on velocity and angle
         double radians = Math.toRadians(this.angle);
-        this.x += this.velocity*Math.sin(radians);
-        this.y -= this.velocity*Math.cos(radians);
+        this.x += this.velocity * Math.sin(radians);
+        this.y -= this.velocity * Math.cos(radians);
 
+        // Implement screen wrapping or boundary conditions
         if (this.x < 0) this.x = 0;
-        if (this.x > this.board.getWidth()-this.getWidth())
-            this.x = this.board.getWidth()-this.getWidth();
+        if (this.x > this.board.getWidth() - this.getWidth())
+            this.x = this.board.getWidth() - this.getWidth();
         if (this.y < 0) this.y = 0;
-        if (this.y > this.board.getHeight()-this.getHeight())
-            this.y = this.board.getHeight()-this.getHeight();
+        if (this.y > this.board.getHeight() - this.getHeight())
+            this.y = this.board.getHeight() - this.getHeight();
 
         System.out.println(this.velocity);
-
     }
 
     public Image getImage() {
@@ -56,8 +60,7 @@ public class Comet implements Runnable {
     }
 
     public BufferedImage rotate(BufferedImage image, Double degrees) {
-        // Calculate the new size of the image based on the angle of rotaion
-
+        // Calculate the new size of the image based on the angle of rotation
         double radians = Math.toRadians(degrees);
         double sin = Math.abs(Math.sin(radians));
         double cos = Math.abs(Math.cos(radians));
@@ -80,11 +83,12 @@ public class Comet implements Runnable {
         g2d.dispose();
         return rotate;
     }
+
     public int getWidth() {
         return this.getImage().getWidth(null);
     }
+
     public int getHeight() {
         return this.getImage().getHeight(null);
     }
-
 }

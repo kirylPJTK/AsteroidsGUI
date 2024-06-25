@@ -39,6 +39,10 @@ public class Board extends JPanel implements Runnable{
         this.requestFocusInWindow();
         this.addKeyListener(this.ship);
     }
+    public void reset() {
+        // Logic to reset the game state
+    }
+
 
     @Override
     public void paint(Graphics g) {

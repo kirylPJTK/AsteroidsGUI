@@ -45,10 +45,10 @@ public class Ship implements KeyListener, Runnable {
                 this.velocity -= 0.5;
             }
             case 'd' -> { //dotaje 45 do angle. Rotacja w prawo
-                this.angle += 3;
+                this.angle += 5;
             }
             case 'a' -> { //odejmuje 45 od angle. Rotacja w lewo
-                this.angle -= 3;
+                this.angle -= 5;
             }
         }
 

@@ -22,6 +22,15 @@ public class MyJFrame extends JFrame {
         this.executor.scheduleAtFixedRate(this.board, 0, 16, TimeUnit.MILLISECONDS);
     }
 
+    public void loadGame() {
+    }
+
+    public void saveGame() {
+    }
+
+    public void resetGame() {
+    }
+
 
 //    private void nextFrame() {
 //
