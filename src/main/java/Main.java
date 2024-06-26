@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         JFrame frame = new MyJFrame(new Board());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600); // Adjust to your screen size
+//        frame.setSize(800, 600); // Adjust to your screen size
         frame.setVisible(true);
 
         // Adding Menu bar

@@ -10,12 +10,13 @@ import java.util.Random;
 
 @Data
 public class Comet implements Runnable {
+
     private final Board board;
     private final Image image;
     private int x;
     private int y;
-    private double angle = 360 * Math.random();
-    private double velocity = 5;
+    private double angle = Math.random() * 80 + 140;
+    private double velocity = Math.random() * 2 + 1;
     private Random rand = new Random();
 
     public Comet(Image image, Board board, int x, int y) {
@@ -27,32 +28,16 @@ public class Comet implements Runnable {
 
     @Override
     public void run() {
-        if (this.velocity < 0.1 && this.velocity > -0.1) {
-            this.velocity = 0;
+        if(!isCometOnPanel()){
+            board.removeComet(this);
         }
 
-        // Adding random acceleration to simulate gravity-like effect
-        double acceleration = (rand.nextDouble() * 2 - 1) * 0.1; // Random acceleration between -0.1 and 0.1
-        this.velocity += acceleration;
 
-        // Adding random change to the angle
-        double angleChange = (rand.nextDouble() * 2 - 1) * 5; // Random angle change between -5 and 5 degrees
-        this.angle += angleChange;
 
-        // Update position based on velocity and angle
         double radians = Math.toRadians(this.angle);
-        this.x += this.velocity * Math.sin(radians);
-        this.y -= this.velocity * Math.cos(radians);
+        this.x += (int) (this.velocity * Math.sin(radians));
+        this.y -= (int) (this.velocity * Math.cos(radians));
 
-        // Implement screen wrapping or boundary conditions
-        if (this.x < 0) this.x = 0;
-        if (this.x > this.board.getWidth() - this.getWidth())
-            this.x = this.board.getWidth() - this.getWidth();
-        if (this.y < 0) this.y = 0;
-        if (this.y > this.board.getHeight() - this.getHeight())
-            this.y = this.board.getHeight() - this.getHeight();
-
-        System.out.println(this.velocity);
     }
 
     public Image getImage() {
@@ -83,6 +68,15 @@ public class Comet implements Runnable {
         g2d.dispose();
         return rotate;
     }
+
+    public boolean isCometOnPanel(){
+        if(this.x > board.getWidth() || this.y > board.getHeight() || this.x < 0 || this.y < 0)
+            return false;
+        else
+            return true;
+    }
+
+
 
     public int getWidth() {
         return this.getImage().getWidth(null);

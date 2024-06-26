@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import java.util.Objects;
 
 @Data
 public class Ship implements KeyListener, Runnable {
@@ -80,7 +81,7 @@ public class Ship implements KeyListener, Runnable {
         if (this.y > this.board.getHeight()-this.getHeight())
             this.y = this.board.getHeight()-this.getHeight();
 
-        System.out.println(this.velocity);
+//        System.out.println(this.velocity);
 
     }
 
@@ -119,5 +120,4 @@ public class Ship implements KeyListener, Runnable {
     public int getHeight() {
         return this.getImage().getHeight(null);
     }
-
 }
