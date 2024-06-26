@@ -2,17 +2,18 @@ package GUI;
 
 import Models.Comet;
 import Models.Ship;
+import lombok.Getter;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.List;
-import java.util.Set;
+import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -23,6 +24,7 @@ public class Board extends JPanel implements Runnable{
     private int delay = 5;
     //todo memory leak comets
     private final Set<Comet> comets;
+    @Getter
     private final Ship ship;
     private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
@@ -32,11 +34,15 @@ public class Board extends JPanel implements Runnable{
         Image cometImage = ImageIO.read(new File("src/main/java/Images/coment_64.png"));
 
         this.ship = new Ship(image, this, 20,25);
-        this.comets = new HashSet<>();
-        
+        this.comets = Collections.synchronizedSet(new HashSet<>());
+
         executor.scheduleAtFixedRate(()->{
             Comet comet = new Comet(cometImage, this, (int) (Math.random()*this.getWidth()), 0);
-            this.comets.add(comet);
+            try {
+                this.comets.add(comet);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }, 0, 800, TimeUnit.MILLISECONDS);
 
 
@@ -55,6 +61,10 @@ public class Board extends JPanel implements Runnable{
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        this.ship.paintAllLasers(g);
+
+
+
         g.drawImage(this.ship.getImage(), this.ship.getX(), this.ship.getY(), this.ship.getWidth(), this.ship.getHeight(), this);
 
         for(Comet comet : comets) {

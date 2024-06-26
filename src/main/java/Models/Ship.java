@@ -9,10 +9,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Data
 public class Ship implements KeyListener, Runnable {
+    private final Set<Laser> lasers;
     private final Board board;
     private final Image image;
     private int x;
@@ -25,9 +28,8 @@ public class Ship implements KeyListener, Runnable {
         this.board = board;
         this.x = x;
         this.y = y;
+        this.lasers = new HashSet<>();
     }
-
-
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -51,6 +53,7 @@ public class Ship implements KeyListener, Runnable {
             case 'a' -> { //odejmuje 45 od angle. Rotacja w lewo
                 this.angle -= 5;
             }
+            case ' ' -> this.lasers.add(new Laser(this));
         }
 
     }
@@ -83,6 +86,8 @@ public class Ship implements KeyListener, Runnable {
 
 //        System.out.println(this.velocity);
 
+        this.lasers.forEach(Laser::run);
+
     }
 
     public Image getImage() {
@@ -114,10 +119,14 @@ public class Ship implements KeyListener, Runnable {
         g2d.dispose();
         return rotate;
     }
+    public void paintAllLasers(Graphics g) {
+        this.lasers.forEach(l->l.paint(g));
+    }
     public int getWidth() {
         return this.getImage().getWidth(null);
     }
     public int getHeight() {
         return this.getImage().getHeight(null);
     }
+
 }

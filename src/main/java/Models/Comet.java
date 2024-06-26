@@ -16,7 +16,7 @@ public class Comet implements Runnable {
     private int x;
     private int y;
     private double angle = Math.random() * 80 + 140;
-    private double velocity = Math.random() * 2 + 1;
+    private double velocity = Math.random() * 2 + 2;
     private Random rand = new Random();
 
     public Comet(Image image, Board board, int x, int y) {
@@ -28,17 +28,26 @@ public class Comet implements Runnable {
 
     @Override
     public void run() {
-        if(!isCometOnPanel()){
+        if (!isCometOnPanel()) {
             board.removeComet(this);
         }
-
-
-
         double radians = Math.toRadians(this.angle);
         this.x += (int) (this.velocity * Math.sin(radians));
         this.y -= (int) (this.velocity * Math.cos(radians));
 
+        this.board.getShip().getLasers()
+                .forEach(l->{
+                    if (this.isCometColidingWithLaser(l))
+                        this.velocity = 0;
+                    this.board.removeComet(this);
+                });
     }
+
+    private boolean isCometColidingWithLaser(Laser laser) {
+        return (laser.getXFront() >= this.x && laser.getXFront() <= (this.x + this.getWidth())) &&
+                        (laser.getYFront() >= this.y && laser.getYFront() <= (this.y + this.getHeight()));
+    }
+
 
     public Image getImage() {
         return this.rotate((BufferedImage) this.image, this.angle);
@@ -69,13 +78,10 @@ public class Comet implements Runnable {
         return rotate;
     }
 
-    public boolean isCometOnPanel(){
-        if(this.x > board.getWidth() || this.y > board.getHeight() || this.x < 0 || this.y < 0)
-            return false;
-        else
-            return true;
+    public boolean isCometOnPanel() {
+        if (this.x > board.getWidth() || this.y > board.getHeight() || this.x < 0 || this.y < 0) return false;
+        else return true;
     }
-
 
 
     public int getWidth() {
