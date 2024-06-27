@@ -103,7 +103,8 @@ public class Board extends JPanel implements Runnable {
         }
         this.repaint();
         this.ship.run();
-        this.comets.values().forEach(Comet::run);
+        final var list = new LinkedList<>(this.comets.values());
+        list.forEach(Comet::run);
         synchronized (this.getLasers()) {
             this.lasers.values().forEach(Laser::run);
         }

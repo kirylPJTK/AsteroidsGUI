@@ -35,6 +35,7 @@ public class Comet implements Runnable {
     public void run() {
         if (!this.isCometOnPanel()) {
             this.board.removeComet(this);
+            return;
         }
         double radians = Math.toRadians(this.angle);
         this.x += (int) (this.velocity * Math.sin(radians));
