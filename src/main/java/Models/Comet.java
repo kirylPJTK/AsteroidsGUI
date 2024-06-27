@@ -10,36 +10,44 @@ import java.util.Random;
 
 @Data
 public class Comet implements Runnable {
+    private static int cometCount = 0;
 
     private final Board board;
     private final Image image;
+    private final Random rand = new Random();
+    private final int cometId;
+
+
     private int x;
     private int y;
     private double angle = Math.random() * 80 + 140;
     private double velocity = Math.random() * 2 + 2;
-    private Random rand = new Random();
 
     public Comet(Image image, Board board, int x, int y) {
         this.image = image;
         this.board = board;
         this.x = x;
         this.y = y;
+        this.cometId = cometCount++;
     }
 
     @Override
     public void run() {
-        if (!isCometOnPanel()) {
-            board.removeComet(this);
+        if (!this.isCometOnPanel()) {
+            this.board.removeComet(this);
         }
         double radians = Math.toRadians(this.angle);
         this.x += (int) (this.velocity * Math.sin(radians));
         this.y -= (int) (this.velocity * Math.cos(radians));
 
-        this.board.getShip().getLasers()
-                .forEach(l->{
-                    if (this.isCometColidingWithLaser(l))
+
+        this.board.getLasers()
+                .values()
+                .forEach(l -> {
+                    if (this.isCometColidingWithLaser(l)) {
                         this.velocity = 0;
-                    this.board.removeComet(this);
+                        this.board.removeComet(this);
+                    }
                 });
     }
 
@@ -79,8 +87,7 @@ public class Comet implements Runnable {
     }
 
     public boolean isCometOnPanel() {
-        if (this.x > board.getWidth() || this.y > board.getHeight() || this.x < 0 || this.y < 0) return false;
-        else return true;
+        return this.x <= board.getWidth() && this.y <= board.getHeight() && this.x >= 0 && this.y >= 0;
     }
 
 
