@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" name="Changes" comment="Class Live">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Laser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Ship.java" afterDir="false" />
     </list>
     <list id="32db2b28-f438-470a-a2ae-0c7e0d867d89" name="Changes by kirillglusakov" comment="" />
@@ -22,7 +24,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="5b67c4d19b6394869c238046ff1792f4bda5e737" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.jdks/openjdk-21.0.1/lib/src.zip!/java.base/java/lang/ClassCastException.java" root0="SKIP_INSPECTION" />
@@ -73,6 +81,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
