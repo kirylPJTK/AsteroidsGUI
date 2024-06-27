@@ -68,11 +68,7 @@ public class Ship implements KeyListener, Runnable {
         this.velocity *= 0.99;
         if (this.velocity < 0.1 && this.velocity > -0.1)
             this.velocity = 0;
-
-
-
 //        this.x += this.velocity;
-
         double radians = Math.toRadians(this.angle);
         this.x += this.velocity*Math.sin(radians);
         this.y -= this.velocity*Math.cos(radians);

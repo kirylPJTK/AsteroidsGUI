@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" name="Changes" comment="Dodanie velocity">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2024,_22_55_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2024__22_55__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_06_2024,_21_39_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_06_2024__21_39__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Models/Live.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Comet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Comet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Laser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Ship.java" afterDir="false" />
     </list>
-    <list id="32db2b28-f438-470a-a2ae-0c7e0d867d89" name="Changes by kirillglusakov" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Comet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Comet.java" afterDir="false" />
-    </list>
+    <list id="32db2b28-f438-470a-a2ae-0c7e0d867d89" name="Changes by kirillglusakov" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,34 +31,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.jdks/openjdk-21.0.1/lib/src.zip!/java.base/java/lang/ClassCastException.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/openjdk-21.0.1/lib/src.zip!/java.desktop/java/awt/event/KeyAdapter.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/Models/Comet.java">
-      <ranges>
-        <range start1="12" end1="12" start2="12" end2="13" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="16" end1="17" start2="17" end2="18" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="29" end1="31" start2="30" end2="32" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="32" end1="32" start2="33" end2="35" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
-        <range start1="33" end1="42" start2="36" end2="36" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="43" end1="45" start2="37" end2="39" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="46" end1="55" start2="40" end2="40" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="85" end1="85" start2="70" end2="79" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/GUI/Board.java">
-      <ranges>
-        <range start1="8" end1="8" start2="8" end2="9" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
-        <range start1="10" end1="10" start2="11" end2="12" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="12" end1="12" start2="14" end2="17" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="15" end1="17" start2="20" end2="24" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="18" end1="19" start2="25" end2="26" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="23" end1="23" start2="30" end2="32" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="24" end1="33" start2="33" end2="39" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="35" end1="36" start2="41" end2="43" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="41" end1="43" start2="48" end2="51" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="45" end1="46" start2="53" end2="53" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -146,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718222360751</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Dodanie velocity">
+      <option name="closed" value="true" />
+      <created>1719436625370</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719436625370</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
