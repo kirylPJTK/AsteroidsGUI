@@ -1,5 +1,6 @@
 package Models;
 
+import GUI.Board;
 import lombok.Data;
 
 import java.awt.*;
@@ -9,6 +10,8 @@ public class Laser implements Runnable{
     private static int laserCount = 0;
 
     private final int laserId;
+    private final Board board;
+
     private int xBack;
     private int yBack;
     private int xFront;
@@ -22,11 +25,17 @@ public class Laser implements Runnable{
         this.xFront = (int) (LENGTH *Math.sin(Math.toRadians(ship.getAngle()))) + xBack;
         this.yFront = (int) (-LENGTH *Math.cos(Math.toRadians(ship.getAngle()))) + yBack;
         this.laserId = Laser.laserCount ++ ;
+        this.board = ship.getBoard();
     }
 
 
     @Override
     public void run() {
+        if (this.isLaserOutOfBounds()){
+            this.board.removeLaser(this);
+            return;
+        }
+
         final int deltaX = xFront-xBack;
         final int deltaY = yFront-yBack;
 
@@ -35,6 +44,7 @@ public class Laser implements Runnable{
         this.xFront += deltaX;
         this.yBack += deltaY;
         this.yFront += deltaY;
+
 
 
     }
@@ -46,7 +56,8 @@ public class Laser implements Runnable{
             g2d.setColor(Color.RED);
             g2d.drawLine(xBack, yBack, xFront, yFront);
         }
-
-
+    }
+    public boolean isLaserOutOfBounds(){
+        return this.xBack > board.getWidth() || this.yBack > board.getHeight() || this.xBack < 0 || this.yBack < 0;
     }
 }

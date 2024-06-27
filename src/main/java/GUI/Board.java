@@ -56,12 +56,12 @@ public class Board extends JPanel implements Runnable {
         lives.add(new Live(image, this, 10, 10));
 
 
-//        executor.scheduleAtFixedRate(()->{
-//            synchronized (this.comets) {
-//                Comet comet = new Comet(cometImage, this, (int) (Math.random() * this.getWidth()), 0);
-//                this.comets.add(comet);
-//            }
-//        }, 0, 800, TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(()->{
+            synchronized (this.comets) {
+                Comet comet = new Comet(COMET_IMAGE, this, (int) (Math.random() * this.getWidth()), 0);
+                this.comets.put(comet.getCometId(), comet);
+            }
+        }, 0, 800, TimeUnit.MILLISECONDS);
 
 
 
@@ -75,6 +75,11 @@ public class Board extends JPanel implements Runnable {
     public void removeComet(Comet comet) {
         this.comets.remove(comet.getCometId());
         System.out.println("Usunieto");
+    }
+    public void removeLaser(Laser laser){
+        this.lasers.remove(laser.getLaserId());
+        System.out.println("laser out");
+        System.out.println(this.lasers.size());
     }
 
     @Override
@@ -92,22 +97,13 @@ public class Board extends JPanel implements Runnable {
 
 
     }
-
-    private int frameCount = 0;
-
     @Override
     public void run() {
-        if ((this.frameCount ++ ) % 50 == 0) {
-            final var comet = new Comet(COMET_IMAGE, this, (int) (Math.random() * this.getWidth()), 0);
-            this.comets.put(comet.getCometId(), comet);
-        }
         this.repaint();
         this.ship.run();
-        final var list = new LinkedList<>(this.comets.values());
-        list.forEach(Comet::run);
-        synchronized (this.getLasers()) {
-            this.lasers.values().forEach(Laser::run);
-        }
+        new LinkedList<>(this.comets.values()).forEach(Comet::run);
+        new LinkedList<>(this.lasers.values()).forEach(Laser::run);
+
 
 
 

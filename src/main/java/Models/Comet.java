@@ -33,7 +33,7 @@ public class Comet implements Runnable {
 
     @Override
     public void run() {
-        if (!this.isCometOnPanel()) {
+        if (this.isCometOutOfBounds()) {
             this.board.removeComet(this);
             return;
         }
@@ -87,8 +87,8 @@ public class Comet implements Runnable {
         return rotate;
     }
 
-    public boolean isCometOnPanel() {
-        return this.x <= board.getWidth() && this.y <= board.getHeight() && this.x >= 0 && this.y >= 0;
+    public boolean isCometOutOfBounds() {
+        return this.x > board.getWidth() || this.y > board.getHeight() || this.x < 0 || this.y < 0;
     }
 
 
