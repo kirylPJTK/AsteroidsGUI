@@ -124,4 +124,6 @@ public class Ship implements KeyListener, Runnable {
         return this.getImage().getHeight(null);
     }
 
+    public void paintAllLasers(Graphics g) {
+    }
 }
