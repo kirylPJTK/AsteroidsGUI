@@ -8,12 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Comet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Comet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Laser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Ship.java" afterDir="false" />
     </list>
-    <list id="32db2b28-f438-470a-a2ae-0c7e0d867d89" name="Changes by kirillglusakov" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Ship.java" afterDir="false" />
-    </list>
+    <list id="32db2b28-f438-470a-a2ae-0c7e0d867d89" name="Changes by kirillglusakov" comment="colliding" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,33 +31,6 @@
     <setting file="jar://$USER_HOME$/.jdks/openjdk-21.0.1/lib/src.zip!/java.base/java/lang/ClassCastException.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/openjdk-21.0.1/lib/src.zip!/java.desktop/java/awt/event/KeyAdapter.java" root0="SKIP_INSPECTION" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/Models/Ship.java">
-      <ranges>
-        <range start1="11" end1="11" start2="11" end2="12" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
-        <range start1="12" end1="12" start2="13" end2="14" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
-        <range start1="15" end1="15" start2="17" end2="18" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="27" end1="27" start2="30" end2="31" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="29" end1="31" start2="33" end2="33" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
-        <range start1="53" end1="53" start2="55" end2="56" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
-        <range start1="84" end1="84" start2="87" end2="89" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
-        <range start1="116" end1="116" start2="121" end2="124" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="122" end1="122" start2="130" end2="131" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/GUI/Board.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="5" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="7" end1="7" start2="8" end2="9" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="11" end1="13" start2="13" end2="14" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="14" end1="15" start2="15" end2="16" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="25" end1="25" start2="26" end2="27" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="34" end1="36" start2="36" end2="38" changelist="32db2b28-f438-470a-a2ae-0c7e0d867d89" />
-        <range start1="38" end1="39" start2="40" end2="45" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-        <range start1="57" end1="57" start2="63" end2="67" changelist="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -72,24 +43,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mikol/Desktop/projekt 3 - Copy - Copy - Copy&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mikol/Desktop/projekt 3 - Copy - Copy - Copy",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mikol\Documents\AsteroidsGUI\src\main\java\Images" />
@@ -130,7 +101,8 @@
       <workItem from="1718269761147" duration="65000" />
       <workItem from="1718799305526" duration="1708000" />
       <workItem from="1719074898826" duration="2502000" />
-      <workItem from="1719418918200" duration="7857000" />
+      <workItem from="1719418918200" duration="8218000" />
+      <workItem from="1719499335554" duration="3642000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie velocity">
       <option name="closed" value="true" />
@@ -148,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719421657115</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="colliding">
+      <option name="closed" value="true" />
+      <created>1719427187421</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719427187421</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +148,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dodanie velocity" />
     <MESSAGE value="ads" />
-    <option name="LAST_COMMIT_MESSAGE" value="ads" />
+    <MESSAGE value="colliding" />
+    <option name="LAST_COMMIT_MESSAGE" value="colliding" />
   </component>
 </project>
