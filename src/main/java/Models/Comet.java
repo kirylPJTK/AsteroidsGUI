@@ -17,7 +17,7 @@ public class Comet implements Runnable {
     private final Random rand = new Random();
     private final int cometId;
 
-
+    private Ship ship;
     private int x;
     private int y;
     private double angle = Math.random() * 80 + 140;
@@ -50,6 +50,11 @@ public class Comet implements Runnable {
                         this.board.removeComet(this);
                     }
                 });
+        if (this.isCometColidingWithSip(ship)) {
+            this.velocity = 0;
+            this.board.removeComet(this);
+        }
+
     }
 
     private boolean isCometColidingWithLaser(Laser laser) {
@@ -57,6 +62,10 @@ public class Comet implements Runnable {
                         (laser.getYFront() >= this.y && laser.getYFront() <= (this.y + this.getHeight()));
     }
 
+    private boolean isCometColidingWithSip(Ship ship) {
+        return (ship.getX() >= this.x && ship.getX() <= (this.x + this.getWidth())) &&
+                (ship.getY() >= this.y && ship.getY() <= (this.y + this.getHeight()));
+    }
 
     public Image getImage() {
         return this.rotate((BufferedImage) this.image, this.angle);

@@ -81,11 +81,11 @@ public class Board extends JPanel implements Runnable {
         this.addKeyListener(this.ship);
         this.lasers = Collections.synchronizedMap(new HashMap<>());
 
-        for (Comet comet : comets.values()) {
-            if (ship.isShipColidingWithComet(comet)) {
-                System.out.println("COLAAAAAAPSED");
-            }
-        }
+//        for (Comet comet : comets.values()) {
+//            if (ship.isShipColidingWithComet(comet)) {
+//                System.out.println("COLAAAAAAPSED");
+//            }
+//        }
     }
     public void removeComet(Comet comet) {
         this.comets.remove(comet.getCometId());
