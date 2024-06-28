@@ -37,23 +37,34 @@ public class Board extends JPanel implements Runnable {
     @Getter
     private final Map<Integer, Laser> lasers;
     private final Set<Live> lives;
+    private Live life1;
+    private Live life2;
+    private Live life3;
+
 
     @Getter
     private final Ship ship;
     private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
     public Board() throws IOException {
-
         Image image = ImageIO.read(new File("src/main/java/Images/ship_64.png"));
-
+        Image scaledImage = image.getScaledInstance(32, 32, Image.SCALE_SMOOTH);
 
         this.ship = new Ship(image, this, 20,25);
         this.comets = Collections.synchronizedMap(new HashMap<>());
         this.lives = Collections.synchronizedSet(new HashSet<>());
-//        this.live = new Live(lifeIamge, this, 200, 200);
-        lives.add(new Live(image, this, 10, 10));
-        lives.add(new Live(image, this, 10, 10));
-        lives.add(new Live(image, this, 10, 10));
+
+        int xPosition = 10;
+        int y = this.getHeight()+1000;
+        int spacing = 40;
+
+        life1 = new Live(scaledImage, this, xPosition, y);
+        life2 = new Live(scaledImage, this, xPosition+spacing, y);
+        life3 = new Live(scaledImage, this, xPosition+2*spacing, y);
+
+        lives.add(life1);
+        lives.add(life2);
+        lives.add(life3);
 
 
         executor.scheduleAtFixedRate(()->{
@@ -63,14 +74,18 @@ public class Board extends JPanel implements Runnable {
             }
         }, 0, 800, TimeUnit.MILLISECONDS);
 
-
-
         this.setPreferredSize(new Dimension(1600, 1200));
         this.setBackground(new Color(3, 3, 19));
         this.setFocusable(true);
         this.requestFocusInWindow();
         this.addKeyListener(this.ship);
         this.lasers = Collections.synchronizedMap(new HashMap<>());
+
+        for (Comet comet : comets.values()) {
+            if (ship.isShipColidingWithComet(comet)) {
+                System.out.println("COLAAAAAAPSED");
+            }
+        }
     }
     public void removeComet(Comet comet) {
         this.comets.remove(comet.getCometId());
@@ -91,8 +106,10 @@ public class Board extends JPanel implements Runnable {
         }
         g.drawImage(this.ship.getImage(), this.ship.getX(), this.ship.getY(), this.ship.getWidth(), this.ship.getHeight(), this);
         this.comets.values().forEach(comet -> g.drawImage(comet.getImage(), comet.getX(), comet.getY(), comet.getWidth(), comet.getHeight(), this));
-        for(Live live : lives) {
-            g.drawImage(live.getImage(), live.getX(), live.getY(), live.getWidth(), live.getHeight(), this);
+        synchronized (this.lives) {
+            for (Live live : lives) {
+                g.drawImage(live.getImage(), live.getX(), live.getY(), live.getWidth(), live.getHeight(), this);
+            }
         }
 
 
@@ -103,11 +120,6 @@ public class Board extends JPanel implements Runnable {
         this.ship.run();
         new LinkedList<>(this.comets.values()).forEach(Comet::run);
         new LinkedList<>(this.lasers.values()).forEach(Laser::run);
-
-
-
-
-
 
     }
 }

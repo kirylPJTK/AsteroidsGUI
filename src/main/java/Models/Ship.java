@@ -71,10 +71,6 @@ public class Ship implements KeyListener, Runnable {
         if (this.velocity < 0.1 && this.velocity > -0.1)
             this.velocity = 0;
 
-
-
-//        this.x += this.velocity;
-
         double radians = Math.toRadians(this.angle);
         this.x += this.velocity*Math.sin(radians);
         this.y -= this.velocity*Math.cos(radians);
@@ -87,13 +83,15 @@ public class Ship implements KeyListener, Runnable {
             this.y = this.board.getHeight()-this.getHeight();
 
 //        System.out.println(this.velocity);
-
-
-
     }
 
     public Image getImage() {
         return this.rotate((BufferedImage) this.image, this.angle);
+    }
+
+    public boolean isShipColidingWithComet(Comet comet) {
+        return (comet.getX() >= this.x && comet.getX() <= (this.x + this.getWidth()) &&
+                comet.getY() <= (this.y+this.getHeight()) && comet.getY() >= this.y);
     }
 
     public BufferedImage rotate(BufferedImage image, Double degrees) {

@@ -19,9 +19,8 @@ public class Laser implements Runnable{
 
 
     public Laser (Ship ship) {//todo do zmiany
-
-        this.xBack = ship.getX();
-        this.yBack = ship.getY();
+        this.xBack = ship.getX()+32;
+        this.yBack = ship.getY()+32;
         this.xFront = (int) (LENGTH *Math.sin(Math.toRadians(ship.getAngle()))) + xBack;
         this.yFront = (int) (-LENGTH *Math.cos(Math.toRadians(ship.getAngle()))) + yBack;
         this.laserId = Laser.laserCount ++ ;
@@ -45,11 +44,7 @@ public class Laser implements Runnable{
         this.yBack += deltaY;
         this.yFront += deltaY;
 
-
-
     }
-
-
     public void paint(Graphics g) {
         if (g instanceof Graphics2D g2d) {
             g2d.setStroke(new BasicStroke(3));

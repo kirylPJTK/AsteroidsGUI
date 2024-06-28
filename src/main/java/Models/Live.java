@@ -2,12 +2,10 @@ package Models;
 
 import GUI.Board;
 import lombok.Data;
-
-import javax.swing.*;
 import java.awt.*;
 
 @Data
-public class Live extends JPanel {
+public class Live {
     private final Board board;
     private final Image image;
     private int x;
@@ -20,9 +18,11 @@ public class Live extends JPanel {
         this.y = y;
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(image, x, y, this);
+    public int getWidth() {
+        return this.getImage().getWidth(null);
+    }
+
+    public int getHeight() {
+        return this.getImage().getHeight(null);
     }
 }
