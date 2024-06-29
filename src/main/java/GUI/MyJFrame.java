@@ -20,6 +20,7 @@ public class MyJFrame extends JFrame {
         this.pack();
         this.setResizable(false);
         this.executor.scheduleAtFixedRate(this.board, 0, 16, TimeUnit.MILLISECONDS);
+        this.executor.scheduleAtFixedRate(this.board::addComet, 0, 800, TimeUnit.MILLISECONDS);
     }
 
     public void loadGame() {
