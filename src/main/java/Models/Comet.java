@@ -51,7 +51,8 @@ public class Comet implements Runnable {
                 });
     }
 
-    private boolean isCometColidingWithLaser(Laser laser) {
+    public boolean isCometColidingWithLaser(Laser laser) {
+
         return (laser.getXFront() >= this.x && laser.getXFront() <= (this.x + this.getWidth())) &&
                         (laser.getYFront() >= this.y && laser.getYFront() <= (this.y + this.getHeight()));
     }

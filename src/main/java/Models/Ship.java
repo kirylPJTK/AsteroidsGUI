@@ -65,6 +65,11 @@ public class Ship implements KeyListener, Runnable {
 
     }
 
+    public void resetPosition(int startX, int startY) {
+        this.x = startX;
+        this.y = startY;
+    }
+
     @Override
     public void run() {
         this.velocity *= 0.99;

@@ -7,7 +7,9 @@
     <list default="true" id="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" name="Changes" comment="add lives on Board, start isShipColidingWithComet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Comet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Comet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Ship.java" afterDir="false" />
     </list>
     <list id="32db2b28-f438-470a-a2ae-0c7e0d867d89" name="Changes by kirillglusakov" comment="" />
     <option name="SHOW_DIALOG" value="false" />

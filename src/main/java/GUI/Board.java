@@ -10,7 +10,10 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -31,16 +34,23 @@ public class Board extends JPanel implements Runnable {
         }
     }
 
-
     private final Set<Comet> comets;
     @Getter
     private final Set<Laser> lasers;
+//    private Laser laser;
     private final List<Live> lives;
 
 
     @Getter
     private final Ship ship;
     private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+    private int seconds = 0;
+    private String timeDisplay = "00:00";
+    private final Timer timer;
+    private int score = 0;
+    private boolean gameOver = false;
+    private boolean paused = false;
+    private JButton newGameButton;
 
     public Board() throws IOException {
         Image image = ImageIO.read(new File("src/main/java/Images/ship_64.png"));
@@ -51,32 +61,57 @@ public class Board extends JPanel implements Runnable {
         this.lives = Collections.synchronizedList(new LinkedList<>());
 
         int xPosition = 10;
-        int y = this.getHeight() + 800;
+        int y = this.getHeight() + 900;
         int spacing = 40;
 
         lives.add(new Live(scaledImage, this, xPosition, y));
         lives.add(new Live(scaledImage, this, xPosition + spacing, y));
         lives.add(new Live(scaledImage, this, xPosition + 2 * spacing, y));
 
-
-
-
         this.setPreferredSize(new Dimension(1600, 1000));
         this.setBackground(new Color(3, 3, 19));
         this.setFocusable(true);
         this.requestFocusInWindow();
+        this.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_P) {
+                    paused = !paused;
+                }
+            }
+        });
         this.addKeyListener(this.ship);
         this.lasers = Collections.synchronizedSet(new HashSet<>());
 
+        timer = new Timer(1000, e -> {
+            seconds++;
+            int minutes = seconds / 60;
+            int sec = seconds % 60;
+            timeDisplay = String.format("%02d:%02d", minutes, sec);
+            repaint();
+        });
+        timer.start();
+
+        newGameButton = new JButton("New Game");
+        newGameButton.setFont(new Font("Arial", Font.BOLD, 20));
+        newGameButton.setBounds(getWidth()/2-100, getHeight()/2+100,200,50);
+        newGameButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                restartGame();
+            }
+        });
     }
 
     private void onShipCometColide() {
         if (this.lives.isEmpty()) {
-            //todo?
-            //todo co się ma dziać jak nie ma już żyć?
-            return;
+            gameOver = true;
+            timer.stop();
+            newGameButton.setVisible(true);
+//            return;
         }
-        this.lives.removeLast();
+        if (!this.lives.isEmpty())
+            this.lives.remove(this.lives.size() - 1);
     }
 
     public void removeComet(Comet comet) {
@@ -93,14 +128,42 @@ public class Board extends JPanel implements Runnable {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+
+        if (gameOver) {
+            g.setColor(Color.RED);
+            g.setFont(new Font("Arial", Font.BOLD, 50));
+            g.drawString("GAME OVER !!!", getWidth() / 2 - 150, getHeight() / 2 - 50);
+            g.setFont(new Font("Arial", Font.BOLD, 30));
+            g.drawString("YOUR TIME: " + timeDisplay, getWidth() / 2 - 150, getHeight() / 2);
+            g.drawString("YOUR SCORE: " + score, getWidth() / 2-150, getHeight() / 2 + 50);
+            return;
+        }
+
+        if (paused) {
+            g.setColor(Color.YELLOW);
+            g.setFont(new Font("Arial", Font.BOLD, 50));
+            g.drawString("PAUSED", this.getWidth() / 2 - 100, getHeight() / 2);
+            return;
+        }
+
         this.lasers.forEach(l -> l.paint(g));
         g.drawImage(this.ship.getImage(), this.ship.getX(), this.ship.getY(), this.ship.getWidth(), this.ship.getHeight(), this);
         this.comets.forEach(comet -> g.drawImage(comet.getImage(), comet.getX(), comet.getY(), comet.getWidth(), comet.getHeight(), this));
         lives.forEach(live -> g.drawImage(live.getImage(), live.getX(), live.getY(), live.getWidth(), live.getHeight(), this));
+
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 20));
+        g.drawString(timeDisplay, getWidth() - 100, 30);
+
+        String scoreDisoplay = "Score: " +  score;
+        g.drawString(scoreDisoplay, getWidth() - 100, getHeight()-30);
+
     }
 
     @Override
     public void run() {
+        if (paused) return;
+
         this.repaint();
         this.ship.run();
         final var comets = new LinkedList<>(this.comets);
@@ -113,5 +176,20 @@ public class Board extends JPanel implements Runnable {
                 this.removeComet(c);
             }
         });
+
+        for (Laser laser : new LinkedList<>(this.lasers)) {
+            for (Comet comet : new LinkedList<>(this.comets)){
+                if (comet.isCometColidingWithLaser(laser)){
+                    score++;
+                    this.removeComet(comet);
+                    this.removeLaser(laser);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void restartGame() {
+
     }
 }
