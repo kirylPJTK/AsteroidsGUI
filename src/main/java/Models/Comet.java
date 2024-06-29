@@ -10,14 +10,13 @@ import java.util.Random;
 
 @Data
 public class Comet implements Runnable {
-    private static int cometCount = 0;
+
 
     private final Board board;
     private final Image image;
     private final Random rand = new Random();
-    private final int cometId;
 
-    private Ship ship;
+
     private int x;
     private int y;
     private double angle = Math.random() * 80 + 140;
@@ -28,7 +27,7 @@ public class Comet implements Runnable {
         this.board = board;
         this.x = x;
         this.y = y;
-        this.cometId = cometCount++;
+
     }
 
     @Override
@@ -43,18 +42,13 @@ public class Comet implements Runnable {
 
 
         this.board.getLasers()
-                .values()
+
                 .forEach(l -> {
                     if (this.isCometColidingWithLaser(l)) {
                         this.velocity = 0;
                         this.board.removeComet(this);
                     }
                 });
-        if (this.isCometColidingWithSip(ship)) {
-            this.velocity = 0;
-            this.board.removeComet(this);
-        }
-
     }
 
     private boolean isCometColidingWithLaser(Laser laser) {
@@ -62,7 +56,7 @@ public class Comet implements Runnable {
                         (laser.getYFront() >= this.y && laser.getYFront() <= (this.y + this.getHeight()));
     }
 
-    private boolean isCometColidingWithSip(Ship ship) {
+    public boolean isCometColidingWithSip(Ship ship) {
         return (ship.getX() >= this.x && ship.getX() <= (this.x + this.getWidth())) &&
                 (ship.getY() >= this.y && ship.getY() <= (this.y + this.getHeight()));
     }
@@ -107,5 +101,15 @@ public class Comet implements Runnable {
 
     public int getHeight() {
         return this.getImage().getHeight(null);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

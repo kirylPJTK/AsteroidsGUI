@@ -7,9 +7,7 @@ import java.awt.*;
 @Data
 public class Laser implements Runnable{
     private final static int LENGTH = 20;
-    private static int laserCount = 0;
 
-    private final int laserId;
     private final Board board;
 
     private int xBack;
@@ -23,7 +21,6 @@ public class Laser implements Runnable{
         this.yBack = ship.getY()+32;
         this.xFront = (int) (LENGTH *Math.sin(Math.toRadians(ship.getAngle()))) + xBack;
         this.yFront = (int) (-LENGTH *Math.cos(Math.toRadians(ship.getAngle()))) + yBack;
-        this.laserId = Laser.laserCount ++ ;
         this.board = ship.getBoard();
     }
 
@@ -54,5 +51,14 @@ public class Laser implements Runnable{
     }
     public boolean isLaserOutOfBounds(){
         return this.xBack > board.getWidth() || this.yBack > board.getHeight() || this.xBack < 0 || this.yBack < 0;
+    }
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

@@ -31,15 +31,11 @@ public class Board extends JPanel implements Runnable {
         }
     }
 
-    //todo memory leak comets
 
-    private final Map<Integer, Comet> comets;
+    private final Set<Comet> comets;
     @Getter
-    private final Map<Integer, Laser> lasers;
-    private final Set<Live> lives;
-    private Live life1;
-    private Live life2;
-    private Live life3;
+    private final Set<Laser> lasers;
+    private final List<Live> lives;
 
 
     @Getter
@@ -50,76 +46,72 @@ public class Board extends JPanel implements Runnable {
         Image image = ImageIO.read(new File("src/main/java/Images/ship_64.png"));
         Image scaledImage = image.getScaledInstance(32, 32, Image.SCALE_SMOOTH);
 
-        this.ship = new Ship(image, this, 20,25);
-        this.comets = Collections.synchronizedMap(new HashMap<>());
-        this.lives = Collections.synchronizedSet(new HashSet<>());
+        this.ship = new Ship(image, this, 20, 25);
+        this.comets = Collections.synchronizedSet(new HashSet<>());
+        this.lives = Collections.synchronizedList(new LinkedList<>());
 
         int xPosition = 10;
-        int y = this.getHeight()+1000;
+        int y = this.getHeight() + 800;
         int spacing = 40;
 
-        life1 = new Live(scaledImage, this, xPosition, y);
-        life2 = new Live(scaledImage, this, xPosition+spacing, y);
-        life3 = new Live(scaledImage, this, xPosition+2*spacing, y);
-
-        lives.add(life1);
-        lives.add(life2);
-        lives.add(life3);
+        lives.add(new Live(scaledImage, this, xPosition, y));
+        lives.add(new Live(scaledImage, this, xPosition + spacing, y));
+        lives.add(new Live(scaledImage, this, xPosition + 2 * spacing, y));
 
 
-        executor.scheduleAtFixedRate(()->{
-            synchronized (this.comets) {
-                Comet comet = new Comet(COMET_IMAGE, this, (int) (Math.random() * this.getWidth()), 0);
-                this.comets.put(comet.getCometId(), comet);
-            }
-        }, 0, 800, TimeUnit.MILLISECONDS);
 
-        this.setPreferredSize(new Dimension(1600, 1200));
+
+        this.setPreferredSize(new Dimension(1600, 1000));
         this.setBackground(new Color(3, 3, 19));
         this.setFocusable(true);
         this.requestFocusInWindow();
         this.addKeyListener(this.ship);
-        this.lasers = Collections.synchronizedMap(new HashMap<>());
+        this.lasers = Collections.synchronizedSet(new HashSet<>());
 
-//        for (Comet comet : comets.values()) {
-//            if (ship.isShipColidingWithComet(comet)) {
-//                System.out.println("COLAAAAAAPSED");
-//            }
-//        }
     }
+
+    private void onShipCometColide() {
+        if (this.lives.isEmpty()) {
+            //todo?
+            //todo co się ma dziać jak nie ma już żyć?
+            return;
+        }
+        this.lives.removeLast();
+    }
+
     public void removeComet(Comet comet) {
-        this.comets.remove(comet.getCometId());
-        System.out.println("Usunieto");
+        this.comets.remove(comet);
     }
-    public void removeLaser(Laser laser){
-        this.lasers.remove(laser.getLaserId());
-        System.out.println("laser out");
-        System.out.println(this.lasers.size());
+
+    public void removeLaser(Laser laser) {
+        this.lasers.remove(laser);
+    }
+    public void addComet(){
+        this.comets.add(new Comet(COMET_IMAGE, this, (int) (Math.random() * this.getWidth()), 0));
     }
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-
-        synchronized (this.lasers) {
-            this.lasers.values().forEach(l -> l.paint(g));
-        }
+        this.lasers.forEach(l -> l.paint(g));
         g.drawImage(this.ship.getImage(), this.ship.getX(), this.ship.getY(), this.ship.getWidth(), this.ship.getHeight(), this);
-        this.comets.values().forEach(comet -> g.drawImage(comet.getImage(), comet.getX(), comet.getY(), comet.getWidth(), comet.getHeight(), this));
-        synchronized (this.lives) {
-            for (Live live : lives) {
-                g.drawImage(live.getImage(), live.getX(), live.getY(), live.getWidth(), live.getHeight(), this);
-            }
-        }
-
-
+        this.comets.forEach(comet -> g.drawImage(comet.getImage(), comet.getX(), comet.getY(), comet.getWidth(), comet.getHeight(), this));
+        lives.forEach(live -> g.drawImage(live.getImage(), live.getX(), live.getY(), live.getWidth(), live.getHeight(), this));
     }
+
     @Override
     public void run() {
         this.repaint();
         this.ship.run();
-        new LinkedList<>(this.comets.values()).forEach(Comet::run);
-        new LinkedList<>(this.lasers.values()).forEach(Laser::run);
+        final var comets = new LinkedList<>(this.comets);
+        comets.forEach(Comet::run);
+        new LinkedList<>(this.lasers).forEach(Laser::run);
 
+        comets.forEach(c -> {
+            if (c.isCometColidingWithSip(this.ship)) {
+                this.onShipCometColide();
+                this.removeComet(c);
+            }
+        });
     }
 }

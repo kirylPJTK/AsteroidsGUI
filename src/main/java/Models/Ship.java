@@ -53,7 +53,7 @@ public class Ship implements KeyListener, Runnable {
             case ' ' -> {
                 final var laser = new Laser(this);
                 synchronized (this.board.getLasers()) {
-                    this.board.getLasers().put(laser.getLaserId(), laser);
+                    this.board.getLasers().add(laser);
                 }
             }
         }
