@@ -53,8 +53,19 @@ public class Comet implements Runnable {
     }
 
     public boolean isCometColidingWithSip(Ship ship) {
-        return (ship.getX() >= this.x && ship.getX() <= (this.x + this.getWidth())) &&
-                (ship.getY() >= this.y && ship.getY() <= (this.y + this.getHeight()));
+        final var x = ship.getX();
+        final var y = ship.getY();
+        final var width = ship.getWidth();
+        final var height = ship.getHeight();
+
+        return (x >= this.x && x <= (this.x + this.getWidth())) &&
+                (y >= this.y && y <= (this.y + this.getHeight())) ||
+                (x + width >= this.x && x + width <= (this.x + this.getWidth())) &&
+                        (y >= this.y && y <= (this.y + this.getHeight())) ||
+                (x >= this.x && x <= (this.x + this.getWidth())) &&
+                        (y + height >= this.y && y + height <= (this.y + this.getHeight())) ||
+                (x + width >= this.x && x + width <= (this.x + this.getWidth())) &&
+                        (y + height >= this.y && y + height <= (this.y + this.getHeight()));
     }
 
     public Image getImage() {

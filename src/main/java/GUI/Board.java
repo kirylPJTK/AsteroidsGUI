@@ -41,7 +41,6 @@ public class Board extends JPanel implements Runnable {
 
     @Getter
     private final Ship ship;
-    private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     private int seconds = 0;
     private String timeDisplay = "00:00";
     private final Timer timer;
@@ -108,14 +107,14 @@ public class Board extends JPanel implements Runnable {
 
     // Removing life icons
     private void onShipCometColide() {
+
+        if (!this.lives.isEmpty())
+            this.lives.remove(this.lives.size() - 1);
         if (this.lives.isEmpty()) {
             gameOver = true;
             timer.stop();
             newGameButton.setVisible(true);
-//            return;
         }
-        if (!this.lives.isEmpty())
-            this.lives.remove(this.lives.size() - 1);
     }
 
     // Romoving Comet
