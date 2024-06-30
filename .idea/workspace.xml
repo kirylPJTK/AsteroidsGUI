@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" name="Changes" comment="dodalem pause, score, timer, i duzo roznych rzeczy">
+    <list default="true" id="a9d1de0b-d3c4-4a8f-8f10-53bb29df5411" name="Changes" comment="Dodanie komietarzy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MyJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MyJFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Comet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Comet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Laser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Ship.java" afterDir="false" />
     </list>
     <list id="32db2b28-f438-470a-a2ae-0c7e0d867d89" name="Changes by kirillglusakov" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,6 +109,7 @@
       <workItem from="1719418918200" duration="7857000" />
       <workItem from="1719504933570" duration="2910000" />
       <workItem from="1719571999189" duration="5325000" />
+      <workItem from="1719772285213" duration="1313000" />
     </task>
     <task id="LOCAL-00001" summary="Dodanie velocity">
       <option name="closed" value="true" />
@@ -154,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719688460671</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Dodanie komietarzy">
+      <option name="closed" value="true" />
+      <created>1719772479241</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719772479241</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +182,7 @@
     <MESSAGE value="Reverted overriding merge. Added class live" />
     <MESSAGE value="add lives on Board, start isShipColidingWithComet" />
     <MESSAGE value="dodalem pause, score, timer, i duzo roznych rzeczy" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodalem pause, score, timer, i duzo roznych rzeczy" />
+    <MESSAGE value="Dodanie komietarzy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie komietarzy" />
   </component>
 </project>

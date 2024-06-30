@@ -14,7 +14,7 @@ public class Laser implements Runnable{
     private int xFront;
     private int yFront;
 
-    public Laser (Ship ship) {//todo do zmiany
+    public Laser (Ship ship) {
         this.xBack = ship.getX()+32;
         this.yBack = ship.getY()+32;
         this.xFront = (int) (LENGTH *Math.sin(Math.toRadians(ship.getAngle()))) + xBack;
