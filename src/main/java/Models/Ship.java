@@ -79,29 +79,22 @@ public class Ship implements KeyListener, Runnable {
         double radians = Math.toRadians(this.angle);
         this.x += this.velocity*Math.sin(radians);
         this.y -= this.velocity*Math.cos(radians);
-
+        // Border for ship to stay in JPanel
         if (this.x < 0) this.x = 0;
         if (this.x > this.board.getWidth()-this.getWidth())
             this.x = this.board.getWidth()-this.getWidth();
         if (this.y < 0) this.y = 0;
         if (this.y > this.board.getHeight()-this.getHeight())
             this.y = this.board.getHeight()-this.getHeight();
-
-//        System.out.println(this.velocity);
     }
 
     public Image getImage() {
         return this.rotate((BufferedImage) this.image, this.angle);
     }
 
-    public boolean isShipColidingWithComet(Comet comet) {
-        return (comet.getX() >= this.x && comet.getX() <= (this.x + this.getWidth()) &&
-                comet.getY() <= (this.y+this.getHeight()) && comet.getY() >= this.y);
-    }
-
+    // rotate image
     public BufferedImage rotate(BufferedImage image, Double degrees) {
         // Calculate the new size of the image based on the angle of rotaion
-
         double radians = Math.toRadians(degrees);
         double sin = Math.abs(Math.sin(radians));
         double cos = Math.abs(Math.cos(radians));

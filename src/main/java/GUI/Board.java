@@ -37,9 +37,7 @@ public class Board extends JPanel implements Runnable {
     private final Set<Comet> comets;
     @Getter
     private final Set<Laser> lasers;
-//    private Laser laser;
     private final List<Live> lives;
-
 
     @Getter
     private final Ship ship;
@@ -53,6 +51,7 @@ public class Board extends JPanel implements Runnable {
     private JButton newGameButton;
 
     public Board() throws IOException {
+        //Images for ship icon
         Image image = ImageIO.read(new File("src/main/java/Images/ship_64.png"));
         Image scaledImage = image.getScaledInstance(32, 32, Image.SCALE_SMOOTH);
 
@@ -64,10 +63,12 @@ public class Board extends JPanel implements Runnable {
         int y = this.getHeight() + 900;
         int spacing = 40;
 
+        // Life icon adding
         lives.add(new Live(scaledImage, this, xPosition, y));
         lives.add(new Live(scaledImage, this, xPosition + spacing, y));
         lives.add(new Live(scaledImage, this, xPosition + 2 * spacing, y));
 
+        // All things for JPanel
         this.setPreferredSize(new Dimension(1600, 1000));
         this.setBackground(new Color(3, 3, 19));
         this.setFocusable(true);
@@ -83,6 +84,7 @@ public class Board extends JPanel implements Runnable {
         this.addKeyListener(this.ship);
         this.lasers = Collections.synchronizedSet(new HashSet<>());
 
+        // Adding timer for my game
         timer = new Timer(1000, e -> {
             seconds++;
             int minutes = seconds / 60;
@@ -92,6 +94,7 @@ public class Board extends JPanel implements Runnable {
         });
         timer.start();
 
+        // Adding "New Game" button
         newGameButton = new JButton("New Game");
         newGameButton.setFont(new Font("Arial", Font.BOLD, 20));
         newGameButton.setBounds(getWidth()/2-100, getHeight()/2+100,200,50);
@@ -103,6 +106,7 @@ public class Board extends JPanel implements Runnable {
         });
     }
 
+    // Removing life icons
     private void onShipCometColide() {
         if (this.lives.isEmpty()) {
             gameOver = true;
@@ -114,6 +118,7 @@ public class Board extends JPanel implements Runnable {
             this.lives.remove(this.lives.size() - 1);
     }
 
+    // Romoving Comet
     public void removeComet(Comet comet) {
         this.comets.remove(comet);
     }
@@ -129,6 +134,7 @@ public class Board extends JPanel implements Runnable {
     public void paint(Graphics g) {
         super.paint(g);
 
+        // Check is gameOver, if so, showing all details
         if (gameOver) {
             g.setColor(Color.RED);
             g.setFont(new Font("Arial", Font.BOLD, 50));
@@ -138,7 +144,7 @@ public class Board extends JPanel implements Runnable {
             g.drawString("YOUR SCORE: " + score, getWidth() / 2-150, getHeight() / 2 + 50);
             return;
         }
-
+        // Same for paused
         if (paused) {
             g.setColor(Color.YELLOW);
             g.setFont(new Font("Arial", Font.BOLD, 50));
@@ -176,7 +182,6 @@ public class Board extends JPanel implements Runnable {
                 this.removeComet(c);
             }
         });
-
         for (Laser laser : new LinkedList<>(this.lasers)) {
             for (Comet comet : new LinkedList<>(this.comets)){
                 if (comet.isCometColidingWithLaser(laser)){
@@ -188,7 +193,6 @@ public class Board extends JPanel implements Runnable {
             }
         }
     }
-
     private void restartGame() {
 
     }

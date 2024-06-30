@@ -7,14 +7,12 @@ import java.awt.*;
 @Data
 public class Laser implements Runnable{
     private final static int LENGTH = 20;
-
     private final Board board;
 
     private int xBack;
     private int yBack;
     private int xFront;
     private int yFront;
-
 
     public Laser (Ship ship) {//todo do zmiany
         this.xBack = ship.getX()+32;
@@ -24,7 +22,7 @@ public class Laser implements Runnable{
         this.board = ship.getBoard();
     }
 
-
+    // Logic for laser
     @Override
     public void run() {
         if (this.isLaserOutOfBounds()){
@@ -35,13 +33,13 @@ public class Laser implements Runnable{
         final int deltaX = xFront-xBack;
         final int deltaY = yFront-yBack;
 
-
         this.xBack += deltaX;
         this.xFront += deltaX;
         this.yBack += deltaY;
         this.yFront += deltaY;
 
     }
+
     public void paint(Graphics g) {
         if (g instanceof Graphics2D g2d) {
             g2d.setStroke(new BasicStroke(3));
@@ -49,6 +47,8 @@ public class Laser implements Runnable{
             g2d.drawLine(xBack, yBack, xFront, yFront);
         }
     }
+
+    // Check if laser out of board
     public boolean isLaserOutOfBounds(){
         return this.xBack > board.getWidth() || this.yBack > board.getHeight() || this.xBack < 0 || this.yBack < 0;
     }

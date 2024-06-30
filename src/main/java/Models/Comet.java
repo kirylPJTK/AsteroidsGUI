@@ -10,12 +10,9 @@ import java.util.Random;
 
 @Data
 public class Comet implements Runnable {
-
-
     private final Board board;
     private final Image image;
     private final Random rand = new Random();
-
 
     private int x;
     private int y;
@@ -40,9 +37,7 @@ public class Comet implements Runnable {
         this.x += (int) (this.velocity * Math.sin(radians));
         this.y -= (int) (this.velocity * Math.cos(radians));
 
-
         this.board.getLasers()
-
                 .forEach(l -> {
                     if (this.isCometColidingWithLaser(l)) {
                         this.velocity = 0;
@@ -94,7 +89,6 @@ public class Comet implements Runnable {
     public boolean isCometOutOfBounds() {
         return this.x > board.getWidth() || this.y > board.getHeight() || this.x < 0 || this.y < 0;
     }
-
 
     public int getWidth() {
         return this.getImage().getWidth(null);

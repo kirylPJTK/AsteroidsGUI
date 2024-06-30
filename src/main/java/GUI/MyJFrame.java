@@ -31,21 +31,4 @@ public class MyJFrame extends JFrame {
 
     public void resetGame() {
     }
-
-
-//    private void nextFrame() {
-//
-//        var el =
-//
-//
-//
-//
-//    }
-
-
-
-
-
-
-
 }
